@@ -1,0 +1,215 @@
+mkdir tp-git
+cd tp-git
+
+Sortie 1er git status : git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+git status
+
+Sortie 2ème git status :
+On branch master
+
+No commits yet
+
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
+fichier1.md
+fichier2.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+git add .
+
+Sortie 3ème git status :
+On branch master
+
+No commits yet
+
+Changes to be committed:
+(use "git rm --cached <file>..." to unstage)
+new file: fichier1.md
+
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
+fichier2.md
+
+git commit -m "Ajout de fichier 1.md"
+
+4ème :
+
+On branch master
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
+fichier2.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+git status
+
+5ème
+On branch master
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
+fichier2.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+PS C:\Users\Baptiste\tp-git> git status
+On branch master
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
+fichier2.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+PS C:\Users\Baptiste\tp-git> git status
+On branch master
+Changes not staged for commit:
+(use "git add <file>..." to update what will be committed)
+(use "git restore <file>..." to discard changes in working directory)
+modified: fichier1.md
+
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
+fichier2.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+$ git status
+
+6ème
+
+On branch master
+nothing to commit, working tree clean
+
+git status
+
+7ème
+
+ID commit 1 : cf637f6a0b5de378adddbec8af145c8cbe882
+ID commit 2 : 9162011ee2b9fc721f1e103a70191acd238ea097
+
+git log
+
+8ème :
+
+Untracked signifie que le fichier n'est pas encore dans la zone de staging il faut donc faire un git add "Nom du fichier", il reste tracked
+
+Ca évite de galérer à check pleins de fichiers si on commit tout d'un coup
+
+Partie 02 :
+
+Créer une branche fonctionnalite1 :
+
+PS C:\Users\Baptiste\tp-git> git branch fonctionnalite1
+
+Lister les branches :
+
+PS C:\Users\Baptiste\tp-git> git branch
+fonctionnalite1
+
+- master
+
+Se déplacer sur la branche fonctionnalite1 :
+
+PS C:\Users\Baptiste\tp-git> git checkout fonctionnalite1
+Switched to branch 'fonctionnalite1'
+PS C:\Users\Baptiste\tp-git> git branch
+
+- fonctionnalite1
+  master
+
+Que représente l'étoile à côté des noms des branches ?
+
+L'étoile aide à nous situer pour savoir dans quelle branch nous sommes
+
+Comment utiliser VS Code pour qu'il nous montre les différences entre l'ancienne version de fichier2.md et la version courante que l'on vient d'éditer ?
+
+Aller sur le ficher, ensuite écrire code . et ensuite aller dans l'onglet source control
+
+Committer ces deux modifications : "Fonctionnalité 1 - première phase"
+
+Committer ces deux modifications : "Fonctionnalité 1 - terminée"
+
+PS C:\Users\Baptiste\tp-git> git add .
+PS C:\Users\Baptiste\tp-git> git commit -m "Fonctionnalité 1 - terminée"
+[fonctionnalite1 9977e50] Fonctionnalité 1 - terminée
+2 files changed, 2 insertions(+)
+create mode 100644 fichier4.md
+
+Validé
+
+Afficher la liste des fichiers du répertoire :
+
+PS C:\Users\Baptiste\tp-git> ls
+
+    Répertoire : C:\Users\Baptiste\tp-git
+
+Mode LastWriteTime Length Name
+
+---
+
+-a---- 02/02/2024 09:39 6 fichier1.md
+-a---- 15/03/2024 09:14 17 fichier2.md
+-a---- 15/03/2024 08:50 0 fichier3.md
+-a---- 15/03/2024 09:14 0 fichier4.md
+
+Se déplacer sur la branche master :
+
+PS C:\Users\Baptiste\tp-git> git checkout master
+Switched to branch 'master'
+
+Afficher la liste des fichiers du répertoire :
+
+PS C:\Users\Baptiste\tp-git> ls
+
+    Répertoire : C:\Users\Baptiste\tp-git
+
+Mode LastWriteTime Length Name
+
+---
+
+-a---- 02/02/2024 09:39 6 fichier1.md
+-a---- 15/03/2024 09:30 0 fichier2.md
+
+Pourquoi les deux sorties sont-elles différentes ? Les fichiers ont-ils disparus ?
+
+Car ce sont deux branches indépendantes
+
+Créer une nouvelle branche fonctionnalite2 :
+
+PS C:\Users\Baptiste\tp-git> git branch fonctionnalite2
+
+Cette branche ne va pas avoir toutes les données incluses dans fonctionnalite1. Pourquoi ?
+
+Car dans fonctionnalité 1 j'ai déjà fais un commit, donc les donnes incluses ne seront pas les mêmes sur la fonctionnalité 2
+
+Qu'aurait-il fallu faire si on avait souhaité démarrer la branche fonctionnalite2 en intégrant les modifications récentes de fonctionnalite1 ?
+
+on aurait du créer la branche et ensuite commit sur la branch fonctionnalité 1
+
+Se déplacer sur la nouvelle branche fonctionnalite2 :
+
+git checkout fonctionnalite2
+
+Faire un commit intégrant cette ajout : "Ajout fichier5.md" :
+
+J'ai clear j'ai mais je l'ai commit
+
+Sur cette représentation, que représente les points ?
+
+Ils signifient les commits que j'ai fais ainsi que la branche dans laquelle je l'ai fais
+
+Comment voit-on sur quelle branche on est actuellement ?
+
+PS C:\Users\Baptiste\tp-git> git branch
+fonctionnalite1
+
+- fonctionnalite2
+  master
+
+On peut voir grâce à l'asterix à côté de la branch
